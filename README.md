@@ -2,7 +2,7 @@
 
 <br/>
 
-`Technical test for the CAR ARQUITECTURA`
+Technical test for the CAR ARQUITECTURA
 
 <br/>
 
@@ -20,19 +20,19 @@ sudo docker-compose build
 sudo docker-compose up
 ```
 
-`wait until start`
+wait until start
 
 <br/>
 
 # Create a SuperUser
 
-`To create a superuser, you need to open a new terminal window and run the following command:`
+To create a superuser, you need to open a new terminal window and run the following command:
 
 ```
 sudo docker-compose run web python manage.py createsuperuser
 ```
 
-`fill all the fields and press enter.`
+fill all the fields and press enter.
 
 <br/>
 
@@ -49,13 +49,13 @@ Open <a href="http://localhost:8000">Admin Panel</a> and fill in the username an
 
 <br/>
 
-`When you try to start the project, you may encounter this error:`
+When you try to start the project, you may encounter this error:
 
 <img src="images/postgres_port_error.png"/>
 
-` This is happening because port 5432 is being used by another container or local postgres installation.`
+This is happening because port `5432` is being used by another container or local postgres installation.
 
-`To solve this error, check if the problem comes because a container is already using that port or it is the postgres local installation.`
+To solve this error, check if the problem comes because a container is already using that port or it is the postgres local installation.
 
 <br/>
 
@@ -63,25 +63,25 @@ Open <a href="http://localhost:8000">Admin Panel</a> and fill in the username an
 
 <hr/>
 
-`To check if another container is already using the port:`
+To check if another container is already using the port:
 
 ```
 sudo docker ps
 ```
 
-`If you have active containers, it will show you something like this:`
+If you have active containers, it will show you something like this:
 
 <img src="images/docker_ps.png">
 
-`Look for some to have 5432 in the port.`
+Look for some to have `5432` in the port.
 
-`if you find one, then copy the container id and run the following command:`
+if you find one, then copy the container id and run the following command:
 
 ```
 sudo docker kill <container id>
 ```
 
-`also you can stop all the containers:`
+also you can stop all the containers:
 
 ```
 sudo docker kill $(sudo docker ps -q)
@@ -93,7 +93,7 @@ sudo docker kill $(sudo docker ps -q)
 
 <hr/>
 
-`Stop Postgres in local:`
+Stop Postgres in local:
 
 <a href="https://stackoverflow.com/questions/34173451/stop-postgresql-service-on-mac-via-terminal">MacOs</a>
 

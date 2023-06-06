@@ -61,8 +61,6 @@ To solve this error, check if the problem comes because a container is already u
 
 ## Check Container
 
-<hr/>
-
 To check if another container is already using the port:
 
 ```
@@ -90,8 +88,6 @@ sudo docker kill $(sudo docker ps -q)
 <br/>
 
 ## Postgres Local Installation
-
-<hr/>
 
 Stop Postgres in local:
 

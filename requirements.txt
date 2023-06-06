@@ -10,3 +10,4 @@ requests==2.22.0
 django-cors-headers==3.13.0
 djangorestframework-api-key==2.2.0
 djangorestframework-simplejwt==4.7.1
+django-material-admin==1.8.6

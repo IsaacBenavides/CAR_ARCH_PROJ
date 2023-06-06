@@ -30,20 +30,25 @@ DEBUG = env.bool("DEBUG")
 LOCAL_APPS = []
 
 
-THIRD_APPS = []
+THIRD_APPS = [
+    "material",
+    "material.admin",
+    "rest_framework",
+    "corsheaders",
+    "rest_framework_api_key",
+]
 
 
 INSTALLED_APPS = (
     [
-        "django.contrib.admin",
         "django.contrib.auth",
         "django.contrib.contenttypes",
         "django.contrib.sessions",
         "django.contrib.messages",
         "django.contrib.staticfiles",
     ]
-    + LOCAL_APPS
     + THIRD_APPS
+    + LOCAL_APPS
 )
 
 MIDDLEWARE = [
@@ -80,22 +85,15 @@ WSGI_APPLICATION = "car_arch_proj.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# POSTGRES_DB=db
-# POSTGRES_USER=root
-# POSTGRES_PORT=5432
-# POSTGRES_PASSWORD=pass
-# PGDATA=/tmp
-# PGPORT=5432
-
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "db",
-        "USER": "root",
-        "PASSWORD": "pass",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
         "HOST": "postgres",
-        "PORT": 5432,
+        "PORT": env("POSTGRES_PORT"),
     }
 }
 

@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+
+  rabbit:
+    restart: always
+    container_name: car_arch_rabbit
+    ports:
+      - 5672:5672
+    image: "rabbitmq:3"
+
+  postgres:
+    restart: always
+    image: postgres:14
+    container_name: car_arch_db
+    command: postgres -c listen_addresses='*'
+    ports:
+      - "5432:5432"
+    volumes:
+      - .data/:/tmp
+    env_file:
+      - .env
+
+  web:
+    restart: always
+    container_name: car_arch_django
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/src
+    env_file:
+      - .env
+    command: >
+      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+      - rabbit
+
+  celery-worker:
+    build: .
+    volumes:
+      - .:/src
+    command: celery -A car_arch_proj.celery worker -l INFO
+    depends_on:
+      - web
+      - rabbit
+      - postgres
+
+  celery-beat:
+    build: .
+    user: root
+    volumes:
+      - .:/src
+    command: celery -A car_arch_proj.celery beat -l INFO
+    depends_on:
+      - web
+      - rabbit
+      - postgres

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Home Page
+{% endblock title %}
+
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock extrahead %}
+
+
+{% block body %}
+
+<nav class="navbar">
+    <h2 class="text">CAR ARQUITECTURA</h2>
+    <div class="end-navbar">
+        <p class="username text">Bienvenido, {{user}}</p>
+        <a class="button" href="/logout/">Cerrar Sesión</a> 
+    </div>   
+</nav>
+
+{% endblock body %}
+    

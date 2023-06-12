@@ -1,0 +1,49 @@
+html,
+body {
+  margin: 0px;
+  background-image: linear-gradient(
+    to right,
+    var(--background-color),
+    var(--foreground-color)
+  );
+  font-family: "Source Code Pro", monospace;
+}
+
+.login-container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 8px 8px 50px var(--shadow-color);
+  width: 600px;
+  padding: 40px 10px;
+}
+
+button {
+  margin-top: 20px;
+  border: none;
+  width: 80%;
+  height: 50px;
+  font-size: 20px;
+  background: var(--background-color);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.error-container {
+  width: 600px;
+  background-color: white;
+  color: red;
+  font-size: 15px;
+  border-radius: 10px;
+  box-shadow: 8px 8px 50px var(--shadow-color);
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+  align-items: center;
+}

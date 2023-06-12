@@ -27,7 +27,12 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env.bool("DEBUG")
 
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    "apps.students",
+    "apps.rating",
+    "apps.courses",
+    "apps.teacher",
+]
 
 
 THIRD_APPS = [
@@ -178,3 +183,4 @@ MATERIAL_ADMIN_SITE = {
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+CELERY_BROKER_URL = "amqp://guest@rabbit:5672//"

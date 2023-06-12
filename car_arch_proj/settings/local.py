@@ -7,8 +7,8 @@ CSRF_TRUSTED_ORIGINS = []
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    "/src/car_arch_proj/static",
 ]
-
 
 STATIC_URL = "/static/"
 

@@ -22,5 +22,30 @@ Home Page
     </div>   
 </nav>
 
+<main class="body">
+    <div class="message-container">
+        {% if  messages %}
+            {% for message in messages %}
+                {% if message.tags == "success" %}
+                    <div class="success-container">
+                        <li>{{ message }}</li>
+                        <a href="/close/messages/">✕</a>
+                    </div>
+                {% elif message.tags == "error"  %}
+                    <div class="error-container">
+                        <li>{{ message }}</li>
+                        <a href="/close/messages/">✕</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+    <form method="POST" >
+        {% csrf_token %}
+        {{form.excel}}
+        <button class="button">Enviar</button>
+    </form>
+</main>
+
 {% endblock body %}
     

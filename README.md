@@ -41,7 +41,6 @@ fill all the fields and press enter.
 Open <a href="http://localhost:8000">Admin Panel</a> and fill in the username and password, then press enter.
 
 <br/>
-<br/>
 
 # Posible Issues
 

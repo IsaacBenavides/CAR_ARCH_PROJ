@@ -11,3 +11,5 @@ django-cors-headers==3.13.0
 djangorestframework-api-key==2.2.0
 djangorestframework-simplejwt==4.7.1
 django-material-admin==1.8.6
+django-phonenumbers==1.0.1
+django-phonenumber-field==7.0.0

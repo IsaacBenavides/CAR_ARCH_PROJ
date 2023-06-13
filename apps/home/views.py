@@ -16,6 +16,17 @@ class HomeView(FormView):
         return super(HomeView, self).dispatch(*args, **kwargs)
 
     def post(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
-        messages.success(request, "Nice :3")
+        if request.method == "POST":
+            form = ExcelFileForm(request.POST, request.FILES)
+            if form.is_valid():
+                messages.success(
+                    request,
+                    "Archivo recibido. Le avisaremos por email cuando hayamos terminado de procesarlo.",
+                )
+            else:
+                messages.error(request, "Hubo un error.")
 
         return super().post(request, *args, **kwargs)
+
+    def get_success_url(self) -> str:
+        return "/"

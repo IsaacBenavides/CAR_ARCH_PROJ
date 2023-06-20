@@ -34,3 +34,6 @@ class Student(models.Model):
     )
     email = models.EmailField(unique=True, blank=True, null=True)
     course = models.ManyToManyField(Course)
+
+    def __str__(self) -> str:
+        return f"{self.name} {self.last_name}"

@@ -41,6 +41,9 @@ services:
 
   celery-worker:
     build: .
+    restart: always
+    env_file:
+      - .env
     volumes:
       - .:/src
     command: celery -A car_arch_proj.celery worker -l INFO
@@ -51,7 +54,10 @@ services:
 
   celery-beat:
     build: .
+    restart: always
     user: root
+    env_file:
+      - .env
     volumes:
       - .:/src
     command: celery -A car_arch_proj.celery beat -l INFO

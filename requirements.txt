@@ -19,3 +19,5 @@ beautifulsoup4==4.11.1
 selenium==3.141.0
 webdriver-manager==1.6
 django-filter==23.2
+drf-yasg[validation]==1.21.6
+coreapi==2.3.3

@@ -6,6 +6,7 @@ from django.utils.decorators import method_decorator
 from apps.students.forms import ExcelFileForm
 from django.contrib import messages
 from apps.students.tasks import read_excel, save_students
+from drf_yasg.utils import swagger_auto_schema
 
 
 class LoadStudents(FormView):
@@ -16,6 +17,7 @@ class LoadStudents(FormView):
     def dispatch(self, *args, **kwargs):
         return super(LoadStudents, self).dispatch(*args, **kwargs)
 
+    @swagger_auto_schema(request_body=ExcelFileForm)
     def post(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
         if request.method == "POST":
             form = ExcelFileForm(request.POST, request.FILES)

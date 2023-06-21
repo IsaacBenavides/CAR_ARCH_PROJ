@@ -5,8 +5,7 @@ from apps.user.forms import LoginForm, SignUpForm
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from apps.students.models import Student
-from apps.courses.models import Course
+from drf_yasg.utils import swagger_auto_schema
 
 
 class LoginView(FormView):
@@ -14,6 +13,7 @@ class LoginView(FormView):
     form_class = LoginForm
     redirect_authenticated_user = True
 
+    @swagger_auto_schema(request_body=LoginForm)
     def post(self, request, *args, **kwargs):
         if request.method == "POST":
             form = LoginForm(request.POST)
@@ -30,6 +30,7 @@ class LoginView(FormView):
                 return render(request, self.template_name, {"form": form})
         return render(request, self.template_name, {"form": form})
 
+    @swagger_auto_schema()
     def get(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
         if request.user.is_authenticated:
             return redirect(self.get_success_url())
@@ -44,6 +45,7 @@ class SignUpView(FormView):
     template_name = "user/register.html"
     form_class = SignUpForm
 
+    @swagger_auto_schema(request_body=SignUpForm)
     def post(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
         if request.method == "POST":
             form = SignUpForm(request.POST)
@@ -56,6 +58,7 @@ class SignUpView(FormView):
         form = SignUpForm()
         return render(request, self.template_name, {"form": form})
 
+    @swagger_auto_schema()
     def get(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
         form = SignUpForm()
         return render(request, self.template_name, {"form": form})

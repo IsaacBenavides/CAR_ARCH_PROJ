@@ -37,6 +37,7 @@ LOCAL_APPS = [
 
 
 THIRD_APPS = [
+    "drf_yasg",
     "material",
     "material.admin",
     "rest_framework",
@@ -148,6 +149,7 @@ REST_FRAMEWORK = {
         "rest_framework_api_key.permissions.HasAPIKey",
     ],
     "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 }
 
 CORS_ALLOW_ALL_ORIGINS = True

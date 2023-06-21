@@ -95,3 +95,7 @@ Stop Postgres in local:
 <a href ="https://stackoverflow.com/questions/41528530/stopping-postgresql-from-starting-on-ubuntu-startup">Linux</a>
 
 <a href ="https://serverfault.com/questions/311565/stop-postgresql-from-starting-on-windows">Windows</a>
+
+# Api Documentation
+
+`http://localhost:8000/redoc/`

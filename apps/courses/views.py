@@ -31,16 +31,7 @@ class LoadCourses(TemplateView):
         return redirect(self.get_success_url())
 
     def get(self, request: HttpRequest, *args: Any, **kwargs: Any) -> HttpResponse:
-        students = Student.objects.all()
-        courses = Course.objects.all()
-        if courses.count() != 0:
-            return redirect("/students/load/")
-        elif students.count() != 0:
-            return redirect("/students/load/")
-        return render(
-            request,
-            self.template_name,
-        )
+        return redirect("/students/load/")
 
     def get_success_url(self) -> str:
         return "/courses/load/"

@@ -32,6 +32,7 @@ LOCAL_APPS = [
     "apps.rating",
     "apps.courses",
     "apps.teacher",
+    "apps.utils",
 ]
 
 
@@ -41,6 +42,7 @@ THIRD_APPS = [
     "rest_framework",
     "corsheaders",
     "rest_framework_api_key",
+    "django_filters",
 ]
 
 

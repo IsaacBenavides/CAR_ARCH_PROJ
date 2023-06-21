@@ -10,4 +10,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("apps.user.urls")),
     path("students/", include("apps.students.urls")),
+    path("api/v1/students/", include("apps.students.api.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

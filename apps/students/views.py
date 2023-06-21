@@ -32,4 +32,4 @@ class LoadStudents(FormView):
         return super().post(request, *args, **kwargs)
 
     def get_success_url(self) -> str:
-        return "/"
+        return "/students/load/"

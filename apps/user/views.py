@@ -37,12 +37,7 @@ class LoginView(FormView):
         return render(request, self.template_name, {"form": form})
 
     def get_success_url(self) -> str:
-        students = Student.objects.all()
-        courses = Course.objects.all()
-        if courses.count() == 0:
-            return "/courses/load/"
-        elif students.count() == 0:
-            return "/students/load/"
+        return "/students/load/"
 
 
 class SignUpView(FormView):

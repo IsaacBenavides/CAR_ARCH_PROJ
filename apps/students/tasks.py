@@ -9,7 +9,7 @@ from django.template.loader import render_to_string
 from apps.students.models import Student
 from apps.students.entity import StudentEntity
 from apps.students.constants import Constants
-from apps.students.utils import validate_unique_fields_of_student, add_errors
+from apps.students.utils import validate_unique_fields_of_student
 
 errors = {}
 

@@ -5,6 +5,8 @@ from apps.user.forms import LoginForm, SignUpForm
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import redirect, render
 from django.contrib import messages
+from apps.students.models import Student
+from apps.courses.models import Course
 
 
 class LoginView(FormView):
@@ -35,7 +37,12 @@ class LoginView(FormView):
         return render(request, self.template_name, {"form": form})
 
     def get_success_url(self) -> str:
-        return "/"
+        students = Student.objects.all()
+        courses = Course.objects.all()
+        if courses.count() == 0:
+            return "/courses/load/"
+        elif students.count() == 0:
+            return "/students/load/"
 
 
 class SignUpView(FormView):

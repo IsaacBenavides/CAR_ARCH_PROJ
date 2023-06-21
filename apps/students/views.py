@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 from typing import Any
 from django.http import HttpRequest, HttpResponse
 from django.views.generic import FormView
@@ -10,14 +8,13 @@ from django.contrib import messages
 from apps.students.tasks import read_excel, save_students
 
 
-# Create your views here.
-class HomeView(FormView):
+class LoadStudents(FormView):
     template_name = "home/home.html"
     form_class = ExcelFileForm
 
     @method_decorator(login_required(login_url="/login/"))
     def dispatch(self, *args, **kwargs):
-        return super(HomeView, self).dispatch(*args, **kwargs)
+        return super(LoadStudents, self).dispatch(*args, **kwargs)
 
     def post(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
         if request.method == "POST":

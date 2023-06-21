@@ -11,16 +11,7 @@ Home Page
 <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
 {% endblock extrahead %}
 
-
 {% block body %}
-<nav class="navbar">
-    <a class="title text" href="/">CAR ARQUITECTURA</a>
-    <div class="end-navbar">
-        <p class="username text">Bienvenido, {{user}}</p>
-        <a class="button" href="#">Cargar Cursos</a> 
-        <a class="button" href="/logout/">Cerrar Sesión</a> 
-    </div>   
-</nav>
 
 <main class="body">
     <div class="message-container" id="message-container">
@@ -47,10 +38,7 @@ Home Page
         <button class="button">Enviar</button>
     </form>
 
-    <script>
-        message_container = document.getElementById("message-container")
-        setTimeout(() => message_container.style.display = "none", 6000)
-    </script>
+    
 </main>
 
 {% endblock body %}

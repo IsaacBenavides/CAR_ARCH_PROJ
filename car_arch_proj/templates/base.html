@@ -16,6 +16,20 @@
     {% block extrahead %} {% endblock %}
   </head>
   <body>
+    {%block navbar%}
+    <nav class="navbar">
+      <a class="title text" href="/">CAR ARQUITECTURA</a>
+      <div class="end-navbar">
+        <p class="username text">Bienvenido, {{user}}</p>
+        {% block extra-navbar %} {% endblock %}
+        <a class="button" href="/logout/">Cerrar Sesión</a>
+      </div>
+    </nav>
+    {% endblock %}
     {% block body %} {% endblock %}
+    <script>
+      message_container = document.getElementById("message-container")
+      setTimeout(() => message_container.style.display = "none", 6000)
+    </script>
   </body>
 </html>

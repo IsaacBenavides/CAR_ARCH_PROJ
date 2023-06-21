@@ -5,6 +5,6 @@ from apps.students.models import Student
 
 
 class StudentsAPIView(generics.ListAPIView):
-    permission_classes = []
+    permission_classes = [HasAPIKey]
     serializer_class = StudentSerializer
     queryset = Student.objects.all()
